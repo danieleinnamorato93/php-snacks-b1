@@ -1,4 +1,21 @@
-<?php
+<!--Snack 4A:
+Stampare in pagina, senza particolare stilizzazione il nome di ogni classe e sotto ognuna, 
+i dati di ogni studente/studentessa presente nella relativa classe.-->
+
+<!--Snack 4B:
+Filtrare il nostro array e mostrare, sempre suddivisi per classe, esclusivamente gli studenti e le studentesse con voto medio sufficiente.-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snack4</title>
+</head>
+
+<body>
+    <?php
 $classi = [
     "Classe 1A" => [
         [
@@ -236,41 +253,26 @@ $classi = [
         ],
     ],
 ];
-?>
-<!--Snack 4A:
-Stampare in pagina, senza particolare stilizzazione il nome di ogni classe e sotto ognuna, 
-i dati di ogni studente/studentessa presente nella relativa classe.-->
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Snack4</title>
-</head>
+$votoSufficiente = 6; 
 
-<body>
-    <?php 
+foreach($classi as $nomeClasse => $studenti ){ ?>
 
-foreach($classi as $key => $list ){ ?>
-
-    <h2>
-        <?= $key; ?>
-    </h2>
-    <?php foreach($list as $itemKey => $studentValue ){ ?>
-
+    <h2><?= $nomeClasse;?></h2>
+    <?php foreach($studenti as $studente) { 
+        if ($studente["voto_medio"] >= $votoSufficiente) { ?>
     <ul>
-        <li>
-            <?= $studentValue["id"]  ?>
-            <?= $studentValue["nome"] ?>
-            <?= $studentValue["cognome"] ?>
-            <?= $studentValue["anni"] ?>
-            <?= $studentValue["voto_medio"] ?>
-            <?= $studentValue["immagine"] ?>
-        </li>
+        <li> <?= $studente["id"];  ?> </li>
+        <li> <?= $studente["nome"]; ?> </li>
+        <li><?= $studente["cognome"]; ?></li>
+        <li> <?= $studente["anni"]; ?></li>
+        <li> <?= $studente["voto_medio"] ?></li>
+        <li> <?= $studente["immagine"]; ?></li>
     </ul>
-    <?php } ?>
-    <?php } ?>
+    <?php }
+     }
+     }
+     ?>
 
 </body>
 
