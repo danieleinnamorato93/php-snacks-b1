@@ -1,6 +1,6 @@
 <?php 
 $name = $_GET['name']
-$mail = $_GET['mail']
+$mail = $_GET["mail"]
 $age = $_GET['age']
 ?>
 <!DOCTYPE html>
@@ -25,8 +25,12 @@ $age = $_GET['age']
         <div class="col">
             <form action="index.php" method="GET">
                 <div>
+                    <?php
                     <input class="form-control form-control-lg" type="text" id="name" name="name" placeholder="Name"
-                        aria-label=".form-control-lg example">
+                        aria-label=".form-control-lg example"> if (strlen($name) > 3 ) {
+                         <?="Accesso consentito"
+                    }
+                 ?>
                 </div>
                 <div>
                     <input class="form-control form-control-lg" type="text" id="mail" name="mail" placeholder="mail"

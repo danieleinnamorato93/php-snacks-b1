@@ -237,7 +237,9 @@ $classi = [
     ],
 ];
 ?>
-
+<!--Snack 4A:
+Stampare in pagina, senza particolare stilizzazione il nome di ogni classe e sotto ognuna, 
+i dati di ogni studente/studentessa presente nella relativa classe.-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -248,12 +250,28 @@ $classi = [
 </head>
 
 <body>
+    <?php 
+
+foreach($classi as $key => $list ){ ?>
+
+    <h2>
+        <?= $key; ?>
+    </h2>
+    <?php foreach($list as $itemKey => $studentValue ){ ?>
 
     <ul>
         <li>
-
+            <?= $studentValue["id"]  ?>
+            <?= $studentValue["nome"] ?>
+            <?= $studentValue["cognome"] ?>
+            <?= $studentValue["anni"] ?>
+            <?= $studentValue["voto_medio"] ?>
+            <?= $studentValue["immagine"] ?>
         </li>
     </ul>
+    <?php } ?>
+    <?php } ?>
+
 </body>
 
 </html>

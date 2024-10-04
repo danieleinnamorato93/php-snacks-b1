@@ -37,7 +37,10 @@ $db = [
 </head>
 
 <body>
-    <div class="grey"><?php foreach($db ['teachers'] as teacher) ?></div>
+    <?php foreach ($db["teacher"] as $teacher) {
+        
+    } ?>
+    <div class="grey"></div>
     <div class="green"></div>
 </body>
 
